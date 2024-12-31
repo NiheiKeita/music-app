@@ -1,12 +1,13 @@
 
 import Button from '@/Components/Button'
-import { playFamimaMelody } from '@/hooks/audio'
+import { playFamimaMelody, playTulipSong } from '@/hooks/audio'
 import React from 'react'
 
 export const AudioView = React.memo(function AudioView() {
     return (
         <>
-            <Button onClick={() => { playFamimaMelody() }}>再生</Button>
+            <Button onClick={() => { playFamimaMelody() }}>ファミマ</Button>
+            <Button onClick={() => { playTulipSong() }}>チューリップ</Button>
         </>
     )
 })

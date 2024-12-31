@@ -1,5 +1,6 @@
 import { musicalScaleToFrequency } from "./audio/musicalScaleToFrequency"
-import { MusicalScale } from "./audio/type"
+import { restToFrequency } from "./audio/restToFrequency"
+import { MusicalScale, RestScale } from "./audio/type"
 
 const context = new (window.AudioContext || window.AudioContext)()
 const Rhythm = 1000
@@ -36,8 +37,8 @@ function playTone(frequency: number, duration: number) {
 export const playMusicalScale = async (musicalScale: MusicalScale) => {
     await playTone(musicalScaleToFrequency(musicalScale), Rhythm / 4)
 }
-export const playRest = async () => {
-    await new Promise(resolve => setTimeout(resolve, Rhythm / 4))
+export const playRest = async (z: RestScale) => {
+    await new Promise(resolve => setTimeout(resolve, Rhythm / restToFrequency(z)))
 }
 
 export async function playFamimaMelody() {
@@ -47,11 +48,63 @@ export async function playFamimaMelody() {
     await playMusicalScale("G4")
     await playMusicalScale("A4")
     await playMusicalScale("D5")
-    await playRest()
+    await playRest("Z4")
     await playMusicalScale("D5")
     await playMusicalScale("A4")
     await playMusicalScale("B4")
     await playMusicalScale("A4")
     await playMusicalScale("D4")
     await playMusicalScale("G4")
+}
+
+export async function playTulipSong() {
+    // ドラクエ序曲の冒頭部分
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playRest("Z4") // 休符
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playRest("Z4") // 休符
+    await playMusicalScale("G4") // ソ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("D4") // レ
+    await playRest("Z4") // 休符
+
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playRest("Z4") // 休符
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playRest("Z4") // 休符
+    await playMusicalScale("G4") // ソ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("C4") // ド
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("C4") // ド
+    await playRest("Z4") // 休符
+
+    await playMusicalScale("G4") // ソ
+    await playMusicalScale("G4") // ソ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("G4") // ソ
+    await playMusicalScale("A4") // ラ
+    await playMusicalScale("A4") // ラ
+    await playMusicalScale("G4") // ソ
+    await playRest("Z4") // 休符
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("E4") // ミ
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("D4") // レ
+    await playMusicalScale("C4") // ド
+    await playRest("Z4") // 休符
 }

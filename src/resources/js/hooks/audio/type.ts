@@ -8,3 +8,4 @@ export type MusicalScale = "C1" | "C#1" | "D1" | "D#1" | "E1" | "F1" | "F#1" | "
     | "C7" | "C#7" | "D7" | "D#7" | "E7" | "F7" | "F#7" | "G7" | "G#7" | "A7" | "A#7" | "B7"
     | "C8" | "C#8" | "D8" | "D#8" | "E8" | "F8" | "F#8" | "G8" | "G#8"
 
+export type RestScale = "Z1" | "Z2" | "Z3" | "Z4" | "Z5" | "Z6" | "Z7" | "Z8"
