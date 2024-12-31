@@ -9,19 +9,19 @@ const noteToPosition = (note: string) => {
     // 音符の音高（例: C4, D4, E4 など）を五線譜の位置に対応する数値に変換
     const noteMapping: { [key: string]: number } = {
         'C4': 0,  // 一番下のライン
-        'D4': 1,  // 第二ライン
+        'D4': 1 + 0.125,  // 第二ライン
         'E4': 2 + 0.25,   // 第三ライン
-        'F4': 3 + 0.5,
+        'F4': 3 + 0.5 + 0.125,
         'G4': 4 + 0.75,  // 第四ライン
-        'A4': 5 + 1,  // 第五ライン
+        'A4': 5 + 1 + 0.125,
         'B4': 6 + 1.25,
-        'C5': 7 + 1.5, // 一番上のライン
+        'C5': 7 + 1.5 + 0.125,
         'D5': 8 + 1.75,
-        'E5': 9 + 2,
+        'E5': 9 + 2 + 0.125,
         'F5': 10 + 2.25,
-        'G5': 11 + 2.5,
+        'G5': 11 + 2.5 + 0.125,
         'A5': 12 + 2.75,
-        'B5': 13 + 3,
+        'B5': 13 + 3 + 0.125,
     }
 
     // 無効な音符（例: 'Z4'）を処理
@@ -32,7 +32,11 @@ const noteToPosition = (note: string) => {
 
 // 音符の黒丸を表示する関数
 const getNoteIcon = () => {
-    return <div className="h-4 w-4 rounded-full bg-black"></div> // 黒丸の音符
+    // return <div className="h-4 w-4 rounded-full bg-black"></div>
+
+    return (
+        <img src="/img/music.svg" alt="note" className="w-20" />
+    )
 }
 
 export const SheetMusic = React.memo<Props>(function SheetMusic({ notes }) {
@@ -58,7 +62,7 @@ export const SheetMusic = React.memo<Props>(function SheetMusic({ notes }) {
 
                         return (
                             <div key={index} className='flex items-end justify-center' style={{ paddingBottom: `${position * 0.5}rem  ` }}>
-                                <div className="h-4 w-4 rounded-full bg-black"></div>
+                                {getNoteIcon()}
                             </div>
                         )
                     })}
