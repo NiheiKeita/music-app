@@ -1,6 +1,8 @@
 
 import Button from '@/Components/Button'
-import { playFamimaMelody, playKaeruNoUta, playTulipSong } from '@/hooks/audio'
+import { playFamimaMelody } from '@/hooks/audio/music/famimaMelody'
+import { playKaeruNoUta } from '@/hooks/audio/music/KaeruNoUta'
+import { playTulipSong } from '@/hooks/audio/music/tulipSong'
 import React from 'react'
 
 export const AudioView = React.memo(function AudioView() {
