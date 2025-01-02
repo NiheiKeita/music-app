@@ -1,7 +1,7 @@
 
 import Button from '@/Components/Button'
 import { playFamimaMelody } from '@/hooks/audio/music/famimaMelody'
-import { playKaeruNoUta } from '@/hooks/audio/music/KaeruNoUta'
+import { playKaeruNoUta } from '@/hooks/audio/music/kaeruNoUta'
 import { playTulipSong } from '@/hooks/audio/music/tulipSong'
 import React from 'react'
 
