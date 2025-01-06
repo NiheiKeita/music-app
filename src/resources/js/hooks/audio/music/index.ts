@@ -1,8 +1,7 @@
 
 const context = new (window.AudioContext || window.AudioContext)()
-const Rhythm = 1000
 
-function playTone(frequency: number, duration: number) {
+export const playTone = (frequency: number, duration: number) => {
     // Web Audio API コンテキストを作成する
     // const context = new (window.AudioContext || window.webkitAudioContext)()
     // 音を生成するためのオシレーターノードを作成
