@@ -1,7 +1,7 @@
-import { playTone } from "./audio/music"
-import { musicalScaleToFrequency } from "./audio/musicalScaleToFrequency"
-import { restToFrequency } from "./audio/restToFrequency"
-import { MusicalScale, RestScale } from "./audio/type"
+import { playTone } from "./music"
+import { musicalScaleToFrequency } from "./musicalScaleToFrequency"
+import { restToFrequency } from "./restToFrequency"
+import { MusicalScale, RestScale } from "./type"
 
 const Rhythm = 1000
 

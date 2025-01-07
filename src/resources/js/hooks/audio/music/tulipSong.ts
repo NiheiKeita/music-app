@@ -1,4 +1,4 @@
-import { playMusicalScale, playRest } from "@/hooks/audio"
+import { playMusicalScale, playRest } from "@/hooks/audio/audio"
 
 export async function playTulipSong() {
     await playMusicalScale("C4") // ド
