@@ -35,37 +35,45 @@ const getNoteIcon = () => {
     // return <div className="h-4 w-4 rounded-full bg-black"></div>
 
     return (
-        <img src="/img/music.svg" alt="note" className="w-20" />
+        <img src="/img/music4.svg" alt="note" className="w-5" />
     )
 }
 
 export const SheetMusic = React.memo<Props>(function SheetMusic({ notes }) {
     return (
-        <div className="w-full rounded-lg border border-gray-300 bg-white p-4">
-            <div className="mb-4 text-xl font-bold">楽譜</div>
-            <div className="relative w-full pb-6    ">
-                {/* 五線譜の線を表示 */}
-                <div className="left-0 top-0 flex h-full w-full flex-col justify-center space-y-4">
-                    {[...Array(5)].map((_, i) => (
-                        <div
-                            key={i}
-                            className={`h-1 w-full bg-gray-400`}
-                        />
-                    ))}
-                </div>
+        <div className="flex overflow-x-auto">
+            {/* 横スクロール可能なコンテナ */}
+            <div className="min-w-[200%] flex-none">
+                <div className="rounded-lg border border-gray-300 bg-white p-4">
+                    <div className="mb-4 text-xl font-bold">楽譜</div>
+                    <div className="relative pb-6">
+                        {/* 五線譜の線を表示 */}
+                        <div className="left-0 top-0 flex h-full w-[200%] flex-col justify-center space-y-4">
+                            {[...Array(5)].map((_, i) => (
+                                <div key={i} className="h-1 bg-gray-400" />
+                            ))}
+                        </div>
 
-                {/* 音符（黒丸）を配置 */}
-                <div className="absolute bottom-0 left-0 right-0 top-0 flex gap-4 px-2">
-                    {notes.map((note, index) => {
-                        const position = noteToPosition(note)
-                        if (position === null) return null // 無効な音符（'Z4'）は表示しない
+                        {/* 音符（黒丸）を配置 */}
+                        <div className="absolute bottom-0 left-0 right-0 top-0 flex gap-4 px-2">
+                            {notes.map((note, index) => {
+                                const position = noteToPosition(note)
+                                if (position === null) return null // 無効な音符（'Z4'）は表示しない
 
-                        return (
-                            <div key={index} className='flex items-end justify-center' style={{ paddingBottom: `${position * 0.5}rem  ` }}>
-                                {getNoteIcon()}
-                            </div>
-                        )
-                    })}
+                                return (
+                                    <div
+                                        key={index}
+                                        className="flex w-5 items-end justify-center"
+                                        style={{
+                                            paddingBottom: `${position * 0.5}rem`,
+                                        }}
+                                    >
+                                        {getNoteIcon()}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
