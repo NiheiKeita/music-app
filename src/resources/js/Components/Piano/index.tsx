@@ -22,7 +22,7 @@ export const Piano = React.memo<Props>(function Piano({
     const [pressedKeys, setPressedKeys] = useState<{ [key: string]: boolean }>({})
 
     const handleKeyPress = (key: MusicalScale) => {
-        setPressedKeys((prev) => ({ ...prev, [key]: !prev[key] }))
+        setPressedKeys((prev) => ({ [key]: !prev[key] }))
         if (!pressedKeys[key]) {
             onClickKey(key)
         }
@@ -47,7 +47,7 @@ export const Piano = React.memo<Props>(function Piano({
                         <PianoKey
                             type="black"
                             onClick={() => handleKeyPress(getSharp(musicalSequence))}
-                            isPressed={!!pressedKeys["#" + musicalSequence]}
+                            isPressed={!!pressedKeys[getSharp(musicalSequence)]}
                             position="left-12 top-0"
                         />
                     )}
