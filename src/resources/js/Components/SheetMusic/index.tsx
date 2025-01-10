@@ -43,12 +43,12 @@ export const SheetMusic = React.memo<Props>(function SheetMusic({ notes }) {
     return (
         <div className="flex overflow-x-auto">
             {/* 横スクロール可能なコンテナ */}
-            <div className="min-w-[200%] flex-none">
+            <div className="min-w-[1000px] flex-none">
                 <div className="rounded-lg border border-gray-300 bg-white p-4">
                     <div className="mb-4 text-xl font-bold">楽譜</div>
                     <div className="relative pb-6">
                         {/* 五線譜の線を表示 */}
-                        <div className="left-0 top-0 flex h-full w-[200%] flex-col justify-center space-y-4">
+                        <div className="left-0 top-0 flex h-full w-full flex-col justify-center space-y-4">
                             {[...Array(5)].map((_, i) => (
                                 <div key={i} className="h-1 bg-gray-400" />
                             ))}
