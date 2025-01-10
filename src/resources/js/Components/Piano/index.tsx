@@ -1,14 +1,15 @@
 import React, { useState } from "react"
 import { PianoKey } from "./components/PianoKey"
+import { MusicalScale } from "@/hooks/audio/type"
 
 type Props = {
-    onClickKey: (key: string) => void
+    onClickKey: (key: MusicalScale) => void
 }
 
 export const Piano = React.memo<Props>(function Piano({
     onClickKey
 }) {
-    const musicalSequences = [
+    const musicalSequences: MusicalScale[] = [
         "C3", "D3", "E3", "F3", "G3", "A3", "B3",
         "C4", "D4", "E4", "F4", "G4", "A4", "B4",
         "C5", "D5", "E5", "F5", "G5", "A5", "B5",
@@ -20,11 +21,17 @@ export const Piano = React.memo<Props>(function Piano({
     ]
     const [pressedKeys, setPressedKeys] = useState<{ [key: string]: boolean }>({})
 
-    const handleKeyPress = (key: string) => {
+    const handleKeyPress = (key: MusicalScale) => {
         setPressedKeys((prev) => ({ ...prev, [key]: !prev[key] }))
         if (!pressedKeys[key]) {
             onClickKey(key)
         }
+    }
+    const getSharp = (key: MusicalScale): MusicalScale => {
+        // C3 なら C#3 を返す
+        const [note, octave] = key.split("")
+        const sharpNote = note + "#" + octave
+        return sharpNote as MusicalScale
     }
 
     return (
@@ -39,7 +46,7 @@ export const Piano = React.memo<Props>(function Piano({
                     {sharp.includes(musicalSequence) && (
                         <PianoKey
                             type="black"
-                            onClick={() => handleKeyPress("#" + musicalSequence)}
+                            onClick={() => handleKeyPress(getSharp(musicalSequence))}
                             isPressed={!!pressedKeys["#" + musicalSequence]}
                             position="left-12 top-0"
                         />
