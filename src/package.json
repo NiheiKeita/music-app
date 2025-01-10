@@ -1,7 +1,6 @@
 {
   "private": true,
   "type": "module",
-  "homepage": "https://niheikeita.github.io/music-app",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -59,7 +58,8 @@
   },
   "msw": {
     "workerDirectory": [
-      "public"
+      "public",
+      ".public"
     ]
   }
 }
