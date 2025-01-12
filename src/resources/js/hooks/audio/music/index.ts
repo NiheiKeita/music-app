@@ -1,8 +1,12 @@
 
-const context = new (window.AudioContext || window.AudioContext)()
+// const context = new (window.AudioContext || window.AudioContext)()
+let context: AudioContext | undefined = undefined
 
 export const playTone = (frequency: number, duration: number) => {
     // Web Audio API コンテキストを作成する
+    if (!context) {
+        context = new AudioContext()
+    }
     // const context = new (window.AudioContext || window.webkitAudioContext)()
     // 音を生成するためのオシレーターノードを作成
     const oscillator = context.createOscillator()
