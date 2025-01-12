@@ -22,10 +22,11 @@ export const Piano = React.memo<Props>(function Piano({
     const [pressedKeys, setPressedKeys] = useState<{ [key: string]: boolean }>({})
 
     const handleKeyPress = (key: MusicalScale) => {
-        setPressedKeys((prev) => ({ [key]: !prev[key] }))
-        if (!pressedKeys[key]) {
-            onClickKey(key)
-        }
+        // setPressedKeys((prev) => ({ [key]: !prev[key] }))
+        // if (!pressedKeys[key]) {
+        //     onClickKey(key)
+        // }
+        onClickKey(key)
     }
     const getSharp = (key: MusicalScale): MusicalScale => {
         // C3 なら C#3 を返す
