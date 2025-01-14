@@ -2,11 +2,12 @@ import type { Preview } from "@storybook/react"
 import "../resources/css/app.css"
 import { initialize, mswLoader } from 'msw-storybook-addon'
 
-initialize({
-    // serviceWorker: {
-    //     url: '/music-app/mockServiceWorker.js'
-    // }
-})
+// initialize({
+//     serviceWorker: {
+//         url: '/music-app/mockServiceWorker.js'
+//     }
+// })
+initialize()
 const preview: Preview = {
     parameters: {
         controls: {
